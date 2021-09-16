@@ -135,212 +135,131 @@ p {
   padding-left: 30px;
 }
 
-.luxbar-default {
-  width: 100%;
-  position: relative;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.luxbar-static {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.luxbar-static .luxbar-checkbox:checked ~ .luxbar-menu {
-  position: absolute;
-}
-
-.luxbar-fixed {
-  width: 100%;
+.header {
+  background-color: black;
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.luxbar-fixed-bottom {
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 3;
 }
 
-.luxbar-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 58px;
-}
-
-.luxbar-menu-left .luxbar-navigation,
-.luxbar-menu-left .luxbar-header {
-  justify-content: flex-start;
-}
-
-.luxbar-brand {
-  font-size: 1.6em;
-  padding: 18px 24px 18px 24px;
-}
-
-.luxbar-menu {
-  min-height: 58px;
-  transition: 0.6s ease;
-  width: 100%;
-}
-
-.luxbar-navigation {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding-left: 0;
+.header ul {
   margin: 0;
-  font-family: "Orbitron", Arial, Helvetica, sans-serif;
-  text-shadow: 0 0 32px purple;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: black;
 }
 
-.luxbar-menu a,
-.luxbar-item a {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.luxbar-item {
-  height: 58px;
-}
-
-.luxbar-item a {
-  padding: 18px 24px 18px 24px;
+.header li a {
   display: block;
+  padding: 15px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
-.luxbar-checkbox {
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #892be2;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
   display: none;
 }
 
-.luxbar-checkbox:not(:checked) ~ .luxbar-menu {
-  overflow: hidden;
-  height: 58px;
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
 }
 
-.luxbar-checkbox:checked ~ .luxbar-menu {
-  transition: height 0.6s ease;
-  height: 100vh;
-  overflow: auto;
-  overflow: hidden;
-  /*customised by me*/
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
 }
 
-.dropdown {
-  position: relative;
-  height: auto;
-  min-height: 58px;
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
 }
 
-.dropdown:hover > ul {
-  position: relative;
-  display: block;
-  min-width: 100%;
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
 }
 
-.dropdown > a::after {
-  position: absolute;
-  content: "";
-  right: 10px;
-  top: 25px;
-  border-width: 5px 5px 0;
-  border-color: transparent;
-  border-style: solid;
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
 }
 
-.dropdown > ul {
-  display: block;
-  overflow-x: hidden;
-  list-style: none;
-  padding: 0;
-}
+/* 48em = 768px */
 
-.dropdown > ul .luxbar-item {
-  min-width: 100%;
-  height: 29px;
-  padding: 5px 10px 5px 40px;
-}
-
-.dropdown > ul .luxbar-item a {
-  min-height: 29px;
-  line-height: 29px;
-  padding: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .luxbar-navigation {
-    flex-flow: row;
-    justify-content: flex-end;
+@media (min-width: 48em) {
+  .header li {
+    float: left;
   }
-
-  .luxbar-checkbox:not(:checked) ~ .luxbar-menu {
-    overflow: visible;
+  .header li a {
+    padding: 20px 30px;
   }
-
-  .luxbar-checkbox:checked ~ .luxbar-menu {
-    height: 58px;
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
   }
-
-  .luxbar-menu .luxbar-item {
-    border-top: 0;
-    border-radius: 10px;
-    margin: 5px;
-  }
-
-  .luxbar-menu-right .luxbar-header {
-    margin-right: auto;
-  }
-
-  .dropdown {
-    height: 58px;
-  }
-
-  .dropdown:hover > ul {
-    position: absolute;
-    left: 0;
-    top: 58px;
-    padding: 0;
-  }
-
-  .dropdown > ul {
+  .header .menu-icon {
     display: none;
   }
-
-  .dropdown > ul .luxbar-item {
-    padding: 5px 10px;
-  }
-
-  .dropdown > ul .luxbar-item a {
-    white-space: nowrap;
-  }
 }
-/******* color variables *******/
-/******* default dark *******/
-.luxbar-menu-dark,
-.luxbar-menu-dark .dropdown ul {
-  background-color: black;
-  color: white;
-}
-
-.luxbar-menu-dark .active,
-.luxbar-menu-dark .luxbar-item:hover {
-  background-color: #892be2;
-  transition: 0.5s ease;
-}
-
-.logo {
-  margin-top: 10px;
-}
-
-/*# sourceMappingURL=style.css.map */
