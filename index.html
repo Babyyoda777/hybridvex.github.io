@@ -1,41 +1,70 @@
 <!DOCTYPE html>
-
 <head>
-  <title>Hybrid | 20785A</title>
-  <meta
-    name="description"
-    content="A robotics team of hastily assembled year 10s."
-  />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="icon" href="./logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
-    rel="stylesheet"
-  />
+  <title> Hybrid | 20785A </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A robotics team of hastily assembled year 10s.">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="./logo.svg">
 </head>
-
 <body>
-<header class="header">
-  <a href="" class="logo"><img src='./logo.svg' height= 50px></a>
-  <input class="menu-btn" type="checkbox" id="menu-btn" />
-  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-  <ul class="menu">
-    <li><a href="#work">Our Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#careers">Careers</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo"><img src="./logo.svg" height=50px alt=""></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">The Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
 </header>
-  <div class="hero">
-    <h1 class="title">
-      We are <span class="focus">Hybrid</span>
-      <span class="glitch-1">Hybrid</span>
-      <span class="glitch-2">Hybrid</span>
-      <span class="glitch-3">Hybrid</span>
-      <span class="glitch-4">Hybrid</span>
-      <span class="glitch-5">Hybrid</span>
-    </h1>
-  </div>
+<section>
+  <svg viewBox="0 0 960 300">
+	<symbol id="s-text">
+		<text text-anchor="middle" x="50%" y="80%">HYBRID</text>
+	</symbol>
+
+	<g class = "g-ants">
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+	</g>
+</svg>
+</section>
+<script type="text/javascript">
+  const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+</script>
 </body>
