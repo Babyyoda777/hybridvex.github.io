@@ -14,25 +14,26 @@
     href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/balzss/luxbar/ae5835e2/build/luxbar.min.css">
 </head>
 
 <body>
-  <header id="luxbar" class="luxbar-fixed">
-    <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox" />
+<header id="luxbar" class="luxbar-static">
+    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
     <div class="luxbar-menu luxbar-menu-right luxbar-menu-dark">
-      <ul class="luxbar-navigation">
-        <li class="luxbar-header">
-          <a href="#" class="luxbar-brand"
-            ><img src="./logo.svg" class="logo" height="50px" alt=""
-          /></a>
-        </li>
-        <li class="luxbar-item"><a href="#">About Us</a></li>
-        <li class="luxbar-item"><a href="#">Meet The Team</a></li>
-        <li class="luxbar-item"><a href="#">Resources</a></li>
-        <li class="luxbar-item"><a href="#">Contact</a></li>
-      </ul>
+        <ul class="luxbar-navigation">
+            <li class="luxbar-header">
+                <a href="#" class="luxbar-brand">LUXBAR</a>
+                <label class="luxbar-hamburger luxbar-hamburger-spin" 
+                id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
+            </li>
+            <li class="luxbar-item"><a href="#">Item 1</a></li>
+            <li class="luxbar-item"><a href="#">Item 2</a></li>
+            <li class="luxbar-item"><a href="#">Item 3</a></li>
+            <li class="luxbar-item"><a href="#">Item 4</a></li>
+        </ul>
     </div>
-  </header>
+</header>
   <div class="hero">
     <h1 class="title">
       We are <span class="focus">Hybrid</span>
